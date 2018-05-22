@@ -33,8 +33,11 @@ jobs:
           command: npm test --coverage
   deploy:
     # deploy app
-    requires:
-      - build
+    working_directory: ~/hello-world-ci
+
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:6.10
     
     steps:              
       - run:
