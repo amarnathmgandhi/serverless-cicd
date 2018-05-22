@@ -32,9 +32,11 @@ jobs:
           name: Run tests with code coverage
           command: npm test --coverage
   deploy:
+    # deploy app
     requires:
       - build
-      # deploy app            
+    
+    steps:              
       - run:
           name: Deploy application 
           command: sls deploy -v
